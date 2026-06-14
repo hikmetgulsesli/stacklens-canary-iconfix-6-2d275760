@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights - StackLens Canary</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#222a3d",
+                        "outline-variant": "#3e484f",
+                        "on-secondary": "#233143",
+                        "primary-fixed": "#c4e7ff",
+                        "on-primary-fixed": "#001e2c",
+                        "tertiary-container": "#f1a02b",
+                        "on-surface-variant": "#bdc8d1",
+                        "on-surface": "#dae2fd",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#31394d",
+                        "secondary-fixed": "#d4e4fa",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-primary-container": "#004965",
+                        "on-primary-fixed-variant": "#004c69",
+                        "outline": "#87929a",
+                        "primary-container": "#38bdf8",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface": "#0b1326",
+                        "surface-tint": "#7bd0ff",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary-fixed-dim": "#ffb960",
+                        "on-secondary-fixed-variant": "#39485a",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "inverse-surface": "#dae2fd",
+                        "on-tertiary-container": "#613b00",
+                        "on-background": "#dae2fd",
+                        "surface-container-highest": "#2d3449",
+                        "on-error": "#690005",
+                        "inverse-primary": "#00668a",
+                        "secondary-container": "#39485a",
+                        "surface-container": "#171f33",
+                        "tertiary": "#ffc176",
+                        "background": "#0b1326",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary-fixed": "#0d1c2d",
+                        "secondary": "#b9c8de",
+                        "inverse-on-surface": "#283044",
+                        "on-tertiary": "#472a00",
+                        "surface-variant": "#2d3449",
+                        "primary": "#8ed5ff",
+                        "surface-dim": "#0b1326",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-secondary-container": "#a7b6cc",
+                        "secondary-fixed-dim": "#b9c8de",
+                        "on-primary": "#00354a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-compact": "4px",
+                        "container-padding": "16px",
+                        "gutter": "12px",
+                        "unit": "4px",
+                        "section-gap": "24px",
+                        "stack-default": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter", "sans-serif"],
+                        "display-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "display-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "data-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full z-40 h-screen w-16 md:w-64 flex flex-col border-r border-outline-variant bg-surface transition-all duration-200 ease-in-out">
+<div class="h-14 flex items-center px-4 border-b border-outline-variant">
+<div class="hidden md:flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">StackLens</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Canary IconFix 6</span>
+</div>
+<span class="material-symbols-outlined md:hidden text-primary">analytics</span>
+</div>
+<div class="flex-1 py-4 flex flex-col gap-unit overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="#" title="Record Operations">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="hidden md:block">Record Operations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="#" title="Record Editor">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="hidden md:block">Record Editor</span>
+</a>
+<!-- Active Tab: Insights -->
+<a class="flex items-center gap-3 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md" href="#" title="Insights">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="hidden md:block">Insights</span>
+</a>
+</div>
+<div class="p-4 border-t border-outline-variant flex flex-col gap-unit">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="#" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="hidden md:block">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md" href="#" title="Support">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="hidden md:block">Support</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-16 md:left-64 z-30 flex items-center justify-between px-container-padding w-full h-14 border-b border-outline-variant bg-surface-container" style="width: calc(100% - var(--sidebar-width, 64px)); md:width: calc(100% - 256px);">
+<div class="flex items-center gap-section-gap">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">StackLens Canary</span>
+<nav class="hidden lg:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:opacity-80" href="#">Dashboard</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:opacity-80" href="#">Logs</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer active:opacity-80" href="#">System Health</a>
+</nav>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-2 top-1.5 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface border border-outline-variant rounded text-body-sm text-on-surface pl-8 pr-2 py-1 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none w-48" placeholder="Search insights..." type="text"/>
+</div>
+<button aria-label="Notifications" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Account" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<button aria-label="Settings" class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-14 ml-16 md:ml-64 h-screen overflow-y-auto bg-background p-container-padding">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-gutter mb-section-gap">
+<div>
+<h1 class="font-display-sm text-display-sm text-on-surface">Insights - Product</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Operational health and anomaly detection for core modules.</p>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="flex items-center gap-2 px-3 py-1.5 border border-outline-variant rounded bg-transparent hover:bg-surface-container-high transition-colors text-body-sm font-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                    Filter
+                </button>
+<button class="flex items-center gap-2 px-3 py-1.5 border border-primary rounded bg-transparent hover:bg-surface-container-high transition-colors text-body-sm font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                    Export Summary
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Small Metrics Row -->
+<div class="col-span-1 md:col-span-4 bg-surface-container border border-outline-variant rounded p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-stack-default">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Mean Time To Recovery</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">timer</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-data-mono text-[24px] leading-[32px] text-on-surface">14m 22s</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_downward</span> 12%</span>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 bg-surface-container border border-outline-variant rounded p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-stack-default">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">System Uptime</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">power_settings_new</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-data-mono text-[24px] leading-[32px] text-on-surface">99.98%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Last 30d</span>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 bg-primary-container/10 border border-primary-container/30 rounded p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-0.5">tips_and_updates</span>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface mb-1">Action Required</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">3 modules are running deprecated engine versions. Update to prevent SLA degradation.</p>
+<button class="font-label-md text-label-md text-primary hover:underline">View Affected Modules</button>
+</div>
+</div>
+<!-- Main Charts Row -->
+<div class="col-span-1 md:col-span-8 bg-surface-container border border-outline-variant rounded p-4 min-h-[240px] flex flex-col">
+<div class="flex items-center justify-between mb-gutter border-b border-outline-variant pb-2">
+<h2 class="font-label-md text-label-md text-on-surface uppercase">Module Health Trends</h2>
+<div class="flex gap-2">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface text-[18px]">refresh</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface text-[18px]">more_vert</button>
+</div>
+</div>
+<!-- Chart Area (Empty/Loading State Example) -->
+<div class="flex-1 flex flex-col items-center justify-center text-center p-4 border border-dashed border-outline-variant rounded bg-surface">
+<span class="material-symbols-outlined text-outline-variant text-[32px] mb-2 animate-pulse">sync</span>
+<p class="font-label-md text-label-md text-on-surface">Aggregating telemetry data</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">This visualization will populate once sufficient temporal data is indexed.</p>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 bg-surface-container border border-outline-variant rounded p-4 min-h-[240px] flex flex-col">
+<div class="flex items-center justify-between mb-gutter border-b border-outline-variant pb-2">
+<h2 class="font-label-md text-label-md text-on-surface uppercase">State Distribution</h2>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface text-[18px]">more_vert</button>
+</div>
+<!-- Simple CSS Bar Chart -->
+<div class="flex-1 flex flex-col justify-center gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary block"></span> Healthy</span>
+<span class="font-data-mono text-on-surface-variant">842</span>
+</div>
+<div class="w-full bg-surface h-2 rounded overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-container block"></span> Warning</span>
+<span class="font-data-mono text-on-surface-variant">124</span>
+</div>
+<div class="w-full bg-surface h-2 rounded overflow-hidden flex">
+<div class="bg-tertiary-container h-full" style="width: 12%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error block"></span> Critical Risk</span>
+<span class="font-data-mono text-on-surface-variant">29</span>
+</div>
+<div class="w-full bg-surface h-2 rounded overflow-hidden flex">
+<div class="bg-error h-full" style="width: 3%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Row: Activity & Risk -->
+<div class="col-span-1 md:col-span-6 bg-surface-container border border-outline-variant rounded flex flex-col">
+<div class="p-3 border-b border-outline-variant flex justify-between items-center bg-surface-variant/30">
+<h2 class="font-label-md text-label-md text-on-surface uppercase">Top 3 Risky Modules</h2>
+<span class="font-body-sm text-body-sm text-primary cursor-pointer hover:underline">View All</span>
+</div>
+<div class="flex flex-col">
+<!-- Table row equivalent -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[18px]">warning</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">AuthGateway_v2</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant">ID: MOD-4921</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-data-mono text-data-mono text-error">94% Failure Rate</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-md text-[10px] uppercase border border-error/20">Critical</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 border-b border-outline-variant hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">error</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">PaymentProcessor_Main</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant">ID: MOD-1182</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-data-mono text-data-mono text-tertiary-container">Latency Spike</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary-container font-label-md text-[10px] uppercase border border-tertiary-container/30">Warning</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">error</span>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">UserSync_Daemon</p>
+<p class="font-data-mono text-data-mono text-on-surface-variant">ID: MOD-0094</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-data-mono text-data-mono text-tertiary-container">Resource Hog</span>
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary-container font-label-md text-[10px] uppercase border border-tertiary-container/30">Warning</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-6 bg-surface-container border border-outline-variant rounded flex flex-col h-[280px]">
+<div class="p-3 border-b border-outline-variant flex justify-between items-center bg-surface-variant/30">
+<h2 class="font-label-md text-label-md text-on-surface uppercase">Recent Activity</h2>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface text-[18px]">filter_list</button>
+</div>
+<div class="flex-1 overflow-y-auto p-3 flex flex-col gap-3">
+<!-- Feed Item -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center mt-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-px h-full bg-outline-variant my-1"></div>
+</div>
+<div class="flex-1 pb-3">
+<div class="flex justify-between items-start">
+<p class="font-body-sm text-body-sm text-on-surface"><span class="font-medium">System Auto-Scale</span> triggered for cluster <span class="font-data-mono text-primary">alpha-01</span></p>
+<span class="font-data-mono text-data-mono text-on-surface-variant shrink-0 ml-2">10:42 AM</span>
+</div>
+</div>
+</div>
+<!-- Feed Item -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center mt-1">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-px h-full bg-outline-variant my-1"></div>
+</div>
+<div class="flex-1 pb-3">
+<div class="flex justify-between items-start">
+<p class="font-body-sm text-body-sm text-on-surface"><span class="font-medium">Crash Detected</span> in worker node <span class="font-data-mono text-error">wrk-992</span>. Attempting restart.</p>
+<span class="font-data-mono text-data-mono text-on-surface-variant shrink-0 ml-2">10:15 AM</span>
+</div>
+</div>
+</div>
+<!-- Feed Item -->
+<div class="flex gap-3">
+<div class="flex flex-col items-center mt-1">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="w-px h-full bg-outline-variant my-1 opacity-0"></div>
+</div>
+<div class="flex-1 pb-3">
+<div class="flex justify-between items-start">
+<p class="font-body-sm text-body-sm text-on-surface"><span class="font-medium">Admin User</span> updated routing rules for <span class="font-data-mono">Gateway_v2</span></p>
+<span class="font-data-mono text-data-mono text-on-surface-variant shrink-0 ml-2">09:30 AM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
